@@ -271,7 +271,7 @@ export class UI {
     if (isPlaceholder) {
       li.classList.add('disabled', 'placeholder');
       const art = el('div', { class: 'art' });
-  art.style.backgroundImage = `url('./assets/deck.jpg')`;
+      art.style.backgroundImage = `url('/assets/deck.jpg')`;
       const inner = el('div', { class: 'card-inner' });
       inner.append(el('div', { class: 'suit', text: '' }));
       inner.append(el('div', { class: 'value', text: '' }));
@@ -290,7 +290,7 @@ export class UI {
     const flip = el('div', { class: 'flip' });
     const back = el('div', { class: 'face back' });
     const backArt = el('div', { class: 'art' });
-    backArt.style.backgroundImage = `url('./assets/deck.jpg')`;
+    backArt.style.backgroundImage = `url('/assets/deck.jpg')`;
     back.append(backArt);
 
     const front = el('div', { class: 'face front' });
@@ -329,22 +329,22 @@ export class UI {
     const v = card.value;
     switch (card.suit) {
       case '♥':
-        return 'assets/heart.jpg';
+        return '/assets/heart.jpg';
       case '♣': {
         const tier = v <= 5 ? 1 : v <= 10 ? 2 : 3; // 2-5 => 1, 6-10 => 2, J-A => 3
-        return `assets/club-${tier}.jpg`;
+        return `/assets/club-${tier}.jpg`;
       }
       case '♠': {
         const tier = v <= 5 ? 1 : v <= 10 ? 2 : 3;
-        return `assets/spade-${tier}.jpg`;
+        return `/assets/spade-${tier}.jpg`;
       }
       case '♦': {
         // diamond tiers: 2-4 => 1, 5-7 => 2, 8-10 => 3
         const tier = v <= 4 ? 1 : v <= 7 ? 2 : 3;
-        return `assets/diamond-${tier}.jpg`;
+        return `/assets/diamond-${tier}.jpg`;
       }
       default:
-  return './assets/deck.jpg';
+      return '/assets/deck.jpg';
     }
   }
 
